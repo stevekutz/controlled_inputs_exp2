@@ -10,5 +10,8 @@
 
 
 4) Build App as stateful component
+- add change handler & connect to state
+- add submit handler & connect to state
 
-////
+5) add additional dependencies
+`yarn add semantic-ui-react redux react-redux redux react-router-dom`

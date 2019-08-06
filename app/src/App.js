@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import ListItems from './ListItems';
 
 class App extends React.Component {
   //state
@@ -25,7 +26,6 @@ class App extends React.Component {
   }
 
   //render
-  
   render() {
     return (
       <div>
@@ -41,21 +41,22 @@ class App extends React.Component {
           
           </label>
           {/* input OR button here*/}
-          <button type = 'submit'> Submit</button>
-        
+          <button type = 'submit'> Submit</button>    
         </form>
 
         <h4> valueArr: {this.state.valueArr}</h4> 
         <ul>
           {this.state.valueArr.map( (item,index) => (
-          <li key = {index}>{item}</li>
+            <div key = {index}>
+              <li>{item}</li>
+              <ListItems item = {item}/>
+            </div>
+                     
         ))}
         </ul>  
  
-
       </div>
-    )
-  
+    ) 
   }
   
 }

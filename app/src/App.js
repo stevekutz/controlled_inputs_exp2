@@ -1,7 +1,8 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import ListItems from './ListItems';
+import ListItemsFC from './ListItems';
+import ListItemsCC from './ListItems2';
 
 class App extends React.Component {
   //state
@@ -49,7 +50,8 @@ class App extends React.Component {
           {this.state.valueArr.map( (item,index) => (
             <div key = {index}>
               <li>{item}</li>
-              <ListItems item = {item}/>
+              <ListItemsFC item = {item}/>
+              <ListItemsCC item = {item}/>
             </div>
                      
         ))}

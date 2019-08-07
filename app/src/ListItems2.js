@@ -13,7 +13,6 @@ class ListItem2 extends React.Component  {
             <ul style = {{color: 'green'}} >
                 <li> {this.props.item}</li>
             </ul>
-
         )
     }
 

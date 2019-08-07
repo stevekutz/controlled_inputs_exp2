@@ -45,17 +45,20 @@ class App extends React.Component {
           <button type = 'submit'> Submit</button>    
         </form>
 
-        <h4> valueArr: {this.state.valueArr}</h4> 
-        <ul>
-          {this.state.valueArr.map( (item,index) => (
-            <div key = {index}>
-              <li>{item}</li>
-              <ListItemsFC item = {item}/>
-              <ListItemsCC item = {item}/>
-            </div>
-                     
-        ))}
-        </ul>  
+        <div className = 'valueArrContainer' >
+          <h4> valueArr: {this.state.valueArr}</h4> 
+          <ul>
+            {this.state.valueArr.map( (item,index) => (
+              <div key = {index}>
+                <li>{item}</li>
+                <ListItemsFC item = {item}/>
+                <ListItemsCC item = {item}/>
+              </div>
+                      
+          ))}
+          </ul> 
+        </div>  
+ 
  
       </div>
     ) 

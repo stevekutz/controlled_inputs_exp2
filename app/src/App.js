@@ -9,6 +9,9 @@ class App extends React.Component {
     state = {
       valueInit: '',
       valueArr: [],
+   //   valArrObj: [{}], 
+  
+          valArrObj: {id: 0, name : 'first', age: 100, real: true }
     }
   
   // handlers
@@ -20,8 +23,18 @@ class App extends React.Component {
     ev.preventDefault();
 
     this.setState(prevState => {
-      return {valueArr: [...prevState.valueArr, this.state.valueInit]}
+      return {
+        valueArr: [...prevState.valueArr, this.state.valueInit],      
+      }
     })
+    this.setState(prevState => {
+
+      // This method mutates state directly
+      return {
+        valueArrObj: [{...prevState.valArrObj.name}, this.state.valArrObj.name = this.state.valueInit],
+      }
+    })
+
 
     this.setState({ valueInit: ''})
   }
@@ -47,6 +60,7 @@ class App extends React.Component {
 
         <div className = 'valueArrContainer' >
           <h4> valueArr: {this.state.valueArr}</h4> 
+          <h5> valArrObj: {this.state.valArrObj.name}</h5>
           <ul>
             {this.state.valueArr.map( (item,index) => (
               <div key = {index}>

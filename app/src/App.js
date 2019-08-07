@@ -11,7 +11,8 @@ class App extends React.Component {
       valueArr: [],
    //   valArrObj: [{}], 
   
-          valArrObj: {id: 0, name : 'first', age: 100, real: true }
+          valObj: {id: 0, name : 'first', age: 100, real: true },
+          valArrObj: [{id: 0, name : 'first', age: 100, real: true }],
     }
   
   // handlers
@@ -38,8 +39,16 @@ class App extends React.Component {
 
 // simply updates staate in obj properly
    this.setState({
-      valArrObj: {id: 0, name : 'NEWfirst', age: 100, real: true }
+      valObj: {id: 0, name : 'NEWfirst', age: 100, real: true }
     })
+
+    let newObj = {id: 0, name : this.state.valueInit, age: 100, real: true };
+
+   
+    this.setState({
+      valArrObj: [...this.state.valArrObj, newObj]
+    })
+   
 
     this.setState({ valueInit: ''})
   }
@@ -65,7 +74,8 @@ class App extends React.Component {
 
         <div className = 'valueArrContainer' >
           <h4> valueArr: {this.state.valueArr}</h4> 
-          <h5> valArrObj: {this.state.valArrObj.name}</h5>
+          <h5> valObj: {this.state.valObj.name}</h5>
+          <h5> valArrObj length: {this.state.valArrObj.length}</h5>
           <ul>
             {this.state.valueArr.map( (item,index) => (
               <div key = {index}>

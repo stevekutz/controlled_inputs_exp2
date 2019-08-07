@@ -27,14 +27,19 @@ class App extends React.Component {
         valueArr: [...prevState.valueArr, this.state.valueInit],      
       }
     })
+  /*
     this.setState(prevState => {
-
       // This method mutates state directly
       return {
         valueArrObj: [{...prevState.valArrObj.name}, this.state.valArrObj.name = this.state.valueInit],
-      }
+      }  
     })
+*/
 
+// simply updates staate in obj properly
+   this.setState({
+      valArrObj: {id: 0, name : 'NEWfirst', age: 100, real: true }
+    })
 
     this.setState({ valueInit: ''})
   }

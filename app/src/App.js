@@ -19,7 +19,7 @@ class App extends React.Component {
   // handlers
   handleChange = ev => {
     this.setState ({[ev.target.name]: ev.target.value})
-    console.log(' current obj length >> ', this.state.valArrObj.length );
+  //  console.log(' current obj length >> ', this.state.valArrObj.length );
   }  
 
   handleSubmit = ev => {
@@ -28,8 +28,32 @@ class App extends React.Component {
     this.setState(prevState => {
       return {
         valueArr: [...prevState.valueArr, this.state.valueInit],      
+
       }
     })
+
+    /*
+    this.setState((prevState) => ({ 
+      stateStudents: [...prevState.stateStudents, newStudent] }));
+
+           let newObj = {...this.state.valArrObj};   // FIRST
+        console.log('newObj spread  >>  ', newObj);
+
+        newObj.name = this.state.valueInit;  // SECOND  
+
+    */
+
+   let newObj = {...this.state.valArrObj};   // FIRST
+   console.log('newObj spread  >>  ', newObj);
+
+   newObj.name = this.state.valueInit;  // SECOND    
+
+    this.setState((prevState) => ({
+      valObjArr: [...prevState.valObjArr, ...newObj]
+    }))  
+
+
+
   /*
     this.setState(prevState => {
       // This method mutates state directly
@@ -39,19 +63,50 @@ class App extends React.Component {
     })
 */
 
-// simply updates staate in obj properly
+// simply updates state in obj properly
    this.setState({
       valObj: {id: 0, name : 'NEWfirst', age: 100, real: true }
     })
 
   //   let newObj = {id: 0, name : this.state.valueInit, age: 100, real: true };
-        let newObj = {name: this.state.valueInit, length: this.state.valArrObj.length};
-        console.log('CURRENT LENGTH >>  ', newObj.length);
+        
 
+        //let newObj = {name: this.state.valueInit, length: this.state.valArrObj.length};
+      
+        //newObj = {name: this.state.valueInit, length: this.state.valArrObj.length};
+
+       
+        // let newObj = {...this.state.valArrObj, name: this.state.valueInit, length: this.state.valArrObj.length};
+        
+   // console.log('newObj spread  >>  ', newObj);
+
+   //    !!!!!  THIS should append arr of obj
+   /* NOT quite 
+  this.setState(prevState => {
+    return {
+      valueObjArr: [prevState.valueObjArr, newObj],      
+        
+    }
+  })
+  */
+
+/*
     this.setState({
-      valArrObj: [...this.state.valArrObj, newObj]
+      // Spread in orin but then add seperate newObj keys  
+      // valArrObj: [...this.state.valArrObj, newObj]
+      
+      // should spread in orig, append, not quite  
+      // ...this.state.valArrObj, valArrObj: [...this.state.valArrObj, newObj]
+      
+      // REDUCER format
+      // ...state, friends: [...state.friends, action.payload]
+
+      // valArrObj: [...this.state.valArrObj, ...newObj] // ERROR, newObj not iterable
+
+      // valArrObj: [{...newObj}]  // just replaces first element 
     })
-   
+*/
+    
     this.setState({ valueInit: ''})
   }
 
@@ -81,7 +136,7 @@ class App extends React.Component {
             {this.state.valueArr.map( (item,index) => (
               <div key = {index}>
                 <li>{item}</li>
-                <ListItemsFC item = {item}/>
+                <ListItemsFC item = {item}/> 
                 <ListItemsCC item = {item}/>
               </div>                  
           ))}

@@ -8,8 +8,8 @@ class ListItem3 extends React.Component  {
         
         return (
             <ul style = {{color: 'deeppink'}} >
-                <li> index: {this.props.index}</li>    
-                <li> {this.props.itemObj.name} </li>
+                <li> index: {this.props.index} </li>    
+                <li> {this.props.itemObj.name}  age: {this.props.itemObj.age}</li>
                 <li>   length: {this.props.objLength} </li>
             </ul>
         )

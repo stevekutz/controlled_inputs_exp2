@@ -43,8 +43,8 @@ class App extends React.Component {
       valObj: {id: 0, name : 'NEWfirst', age: 100, real: true }
     })
 
-    let newObj = {id: 0, name : this.state.valueInit, age: 100, real: true };
-
+  //   let newObj = {id: 0, name : this.state.valueInit, age: 100, real: true };
+        let newObj = {name: this.state.valueInit, length: this.state.valArrObj.length}
    
     this.setState({
       valArrObj: [...this.state.valArrObj, newObj]
@@ -90,9 +90,9 @@ class App extends React.Component {
         <h4> valArrObj length: {this.state.valArrObj.length}</h4>     
                 {this.state.valArrObj.map( (itemObj,index) =>  (
                     <ListItem3 
-                     key = {index } 
+                     key = {index }  
                      itemObj = {itemObj} 
-                     length = {this.state.valArrObj.length}
+  
                      />
                 ))}
         </div>

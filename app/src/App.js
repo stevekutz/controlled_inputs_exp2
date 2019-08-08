@@ -87,9 +87,13 @@ class App extends React.Component {
         </div>  
  
         <div className = 'valArrObjContainer'>
-        <h5> valArrObj length: {this.state.valArrObj.length}</h5>     
+        <h4> valArrObj length: {this.state.valArrObj.length}</h4>     
                 {this.state.valArrObj.map( (itemObj,index) =>  (
-                    <ListItem3  key = {index } itemObj = {itemObj} />
+                    <ListItem3 
+                     key = {index } 
+                     itemObj = {itemObj} 
+                     length = {this.state.valArrObj.length}
+                     />
                 ))}
         </div>
  

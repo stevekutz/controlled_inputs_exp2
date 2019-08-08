@@ -13,7 +13,7 @@ ul{
   margin: 2px;
 }
 
-.valueArrContainer{
+.valueArrContainer, .valArrObjContainer{
   border: 4px solid deeppink;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,9 @@ ul{
   width: 90%;
   margin: 5px;
 
+}
 
+.valArrObjContainer {
+  border: 4px solid dodgerblue;
 
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import ListItemsFC from './ListItems';
 import ListItemsCC from './ListItems2';
+import ListItem3 from './ListItem3';
 
 class App extends React.Component {
   //state
@@ -49,7 +50,6 @@ class App extends React.Component {
       valArrObj: [...this.state.valArrObj, newObj]
     })
    
-
     this.setState({ valueInit: ''})
   }
 
@@ -75,19 +75,23 @@ class App extends React.Component {
         <div className = 'valueArrContainer' >
           <h4> valueArr: {this.state.valueArr}</h4> 
           <h5> valObj: {this.state.valObj.name}</h5>
-          <h5> valArrObj length: {this.state.valArrObj.length}</h5>
           <ul>
             {this.state.valueArr.map( (item,index) => (
               <div key = {index}>
                 <li>{item}</li>
                 <ListItemsFC item = {item}/>
                 <ListItemsCC item = {item}/>
-              </div>
-                      
+              </div>                  
           ))}
           </ul> 
         </div>  
  
+        <div className = 'valArrObjContainer'>
+        <h5> valArrObj length: {this.state.valArrObj.length}</h5>     
+                {this.state.valArrObj.map( (itemObj,index) =>  (
+                    <ListItem3  key = {index } itemObj = {itemObj} />
+                ))}
+        </div>
  
       </div>
     ) 

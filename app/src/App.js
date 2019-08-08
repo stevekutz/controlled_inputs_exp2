@@ -19,6 +19,7 @@ class App extends React.Component {
   // handlers
   handleChange = ev => {
     this.setState ({[ev.target.name]: ev.target.value})
+    console.log(' current obj length >> ', this.state.valArrObj.length );
   }  
 
   handleSubmit = ev => {
@@ -44,8 +45,9 @@ class App extends React.Component {
     })
 
   //   let newObj = {id: 0, name : this.state.valueInit, age: 100, real: true };
-        let newObj = {name: this.state.valueInit, length: this.state.valArrObj.length}
-   
+        let newObj = {name: this.state.valueInit, length: this.state.valArrObj.length};
+        console.log('CURRENT LENGTH >>  ', newObj.length);
+
     this.setState({
       valArrObj: [...this.state.valArrObj, newObj]
     })
@@ -90,9 +92,10 @@ class App extends React.Component {
         <h4> valArrObj length: {this.state.valArrObj.length}</h4>     
                 {this.state.valArrObj.map( (itemObj,index) =>  (
                     <ListItem3 
-                     key = {index }  
+                     key = {index } 
+                     index = {index} 
                      itemObj = {itemObj} 
-  
+                     objLength = {this.state.valArrObj.length}
                      />
                 ))}
         </div>

@@ -27,7 +27,7 @@ class App extends React.Component {
 
     this.setState(prevState => {
       return {
-        valueArr: [...prevState.valueArr, this.state.valueInit],      
+        valueArr: [prevState.valueArr, this.state.valueInit],      
 
       }
     })
@@ -49,7 +49,7 @@ class App extends React.Component {
    newObj.name = this.state.valueInit;  // SECOND    
 
     this.setState((prevState) => ({
-      valObjArr: [...prevState.valObjArr, ...newObj]
+      valArrObj: [...prevState.valArrObj, ...newObj]
     }))  
 
 

@@ -48,19 +48,17 @@ class App extends React.Component {
 
    newObj.name = this.state.valueInit;  // SECOND    
 
-    this.setState((prevState) => ({
-      valArrObj: [...prevState.valArrObj, ...newObj]
-    }))  
+   this.setState(prevState => {
+    // This method mutates state directly
+    return {
+      valueArrObj: [{...prevState.valArrObj.name}],
+    }  
+  })
 
 
 
   /*
-    this.setState(prevState => {
-      // This method mutates state directly
-      return {
-        valueArrObj: [{...prevState.valArrObj.name}, this.state.valArrObj.name = this.state.valueInit],
-      }  
-    })
+
 */
 
 // simply updates state in obj properly
